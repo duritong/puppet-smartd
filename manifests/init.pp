@@ -11,20 +11,18 @@
 # the Free Software Foundation.
 #
 
-# modules_dir { \"smartd\": }
-
 class smartd {
     include smartd::base
 }
 
 class smartd::base {
-    package{'smartd':
+    package{'smartmontools':
         ensure => present,
     }
     service{smartd:
         ensure => running,
         enable => true,
         hasstatus => true,
-        require => Package[smartd],
+        require => Package['smartmontools'],
     }
 }
