@@ -1,6 +1,6 @@
 # manifests/disable.pp
 
-class smartd::disable {
+class smartd::disable inherits smartd{
     package{'smartmontools':
         ensure => absent,
     }
