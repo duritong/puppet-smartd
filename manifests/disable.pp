@@ -6,7 +6,7 @@ class smartd::disable inherits smartd::base{
     Service['smartd']{
         ensure => stopped,
         enable => false,
-        hasstatus => true,
+        hasstatus => false,
         require => Package['smartmontools'],
     }
 }
