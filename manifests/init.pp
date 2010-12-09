@@ -12,5 +12,8 @@
 #
 
 class smartd {
-  include smartd::base
+  case $operatingsystem {
+    debian: { include smartd::debian }
+    default: { include smartd::base }
+  }
 }
