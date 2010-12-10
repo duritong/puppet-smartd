@@ -1,12 +1,6 @@
-# manifests/disable.pp
-class smartd::disable inherits smartd::base{
-    Package['smartmontools']{
-        ensure => absent,
-    }
-    Service['smartd']{
-        ensure => stopped,
-        enable => false,
-        hasstatus => false,
-        require => Package['smartmontools'],
-    }
+class smartd::disable {
+  case $operatingsystem {
+    debian: { include smartd::disable::debian }
+    default: { include smartd::disable::base }
+  }
 }
