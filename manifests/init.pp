@@ -13,6 +13,7 @@
 
 class smartd {
   case $operatingsystem {
+    openbsd: { include smartd::openbsd }
     debian: { include smartd::debian }
     default: { include smartd::base }
   }
